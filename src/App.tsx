@@ -298,17 +298,17 @@ export default function App() {
         
         {/* Navigation - Always on top */}
         <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 whitespace-nowrap">
-          <div className="liquid-glass flex items-center gap-6 rounded px-4 py-2.5">
+          <div className="liquid-glass flex items-center gap-4 md:gap-6 rounded px-4 py-2.5">
             <LogoMark />
-            <div className="flex items-center gap-5">
+            <div className="hidden lg:flex items-center gap-5">
               {NAV_LINKS.map(link => (
                 <a key={link} href="#" className="text-sm font-body font-light text-white/70 hover:text-white transition-colors duration-200">
                   {link}
                 </a>
               ))}
             </div>
-            <div className="flex items-center gap-3 ml-4">
-              <a href="#" className="text-sm font-body font-light text-white/70 hover:text-white transition-colors duration-200">
+            <div className="flex items-center gap-3 ml-0 md:ml-4">
+              <a href="#" className="hidden md:block text-sm font-body font-light text-white/70 hover:text-white transition-colors duration-200">
                 Sign in
               </a>
               <button className="liquid-glass-strong text-sm font-body font-medium text-white rounded px-4 py-1.5 transition-all duration-200 hover:scale-[1.04] hover:shadow-[0_0_16px_2px_rgba(255,255,255,0.12)] active:scale-[0.97]">
@@ -347,12 +347,12 @@ export default function App() {
             <h1 className="hero-title select-none">MicroVisuals</h1>
           </div>
 
-          <div className={`absolute bottom-12 left-0 right-0 px-10 flex items-end justify-between z-20 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-sm font-body font-light text-white/75 max-w-[220px] leading-relaxed drop-shadow-md">
+          <div className={`absolute bottom-12 left-0 right-0 px-6 md:px-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-6 z-20 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-sm font-body font-light text-white/75 max-w-[220px] leading-relaxed text-center md:text-left drop-shadow-md">
               Forma's AI understands context, composition, and style like a creative director would.
             </p>
             
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <button className="group relative bg-white text-black text-sm font-body font-medium rounded px-6 py-3 overflow-hidden active:scale-[0.97] transition-all duration-200 shadow-[0_0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_24px_4px_rgba(255,255,255,0.25)] hover:scale-[1.03]">
                 <span className="relative z-10">Start generating</span>
                 <span className="absolute inset-0 bg-gradient-to-b from-white to-white/85 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -362,7 +362,7 @@ export default function App() {
               </button>
             </div>
 
-            <p className="text-sm font-body font-light text-white/75 max-w-[220px] leading-relaxed text-right drop-shadow-md">
+            <p className="text-sm font-body font-light text-white/75 max-w-[220px] leading-relaxed text-center md:text-right drop-shadow-md">
               Describe what you see in your head — get images that actually match.
             </p>
           </div>
@@ -374,9 +374,9 @@ export default function App() {
         {/* SECTION 1: THE WILDERNESS */}
         <section className="relative w-full min-h-screen flex items-center justify-center py-32 px-4 z-10 bg-black">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="animate-section">
-              <h2 className="font-heading italic text-6xl lg:text-8xl mb-8 leading-[0.9]">The<br/>Wilderness</h2>
-              <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed mb-8 max-w-md">
+            <div className="animate-section text-center md:text-left">
+              <h2 className="font-heading italic text-6xl lg:text-8xl mb-8 leading-[0.9]">The<br className="hidden md:block"/>Wilderness</h2>
+              <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
                 Step into a realm untouched by time. Our creative engine generates ethereal landscapes that breathe life into your vision, capturing the raw essence of nature with unprecedented precision and scale.
               </p>
               <button className="liquid-glass-strong px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:scale-[1.03] active:scale-[0.97] transition-all duration-300">
@@ -384,7 +384,7 @@ export default function App() {
               </button>
             </div>
             <div className="animate-section relative h-[500px] lg:h-[700px] rounded-3xl overflow-hidden liquid-glass">
-              <video src="/video1.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover parallax-image scale-[1.3] opacity-80" />
+              <video src={`${import.meta.env.BASE_URL}video1.mp4`} autoPlay loop muted playsInline className="w-full h-full object-cover parallax-image scale-[1.3] opacity-80" />
             </div>
           </div>
         </section>
@@ -392,7 +392,7 @@ export default function App() {
         {/* SECTION 2: IMMERSION / EPIC SCALE */}
         <section className="relative w-full h-[120vh] flex items-center justify-center overflow-hidden z-10 bg-black">
           <div className="absolute inset-0 z-0">
-            <video src="/video2.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover parallax-image scale-[1.3] opacity-50" />
+            <video src={`${import.meta.env.BASE_URL}video2.mp4`} autoPlay loop muted playsInline className="w-full h-full object-cover parallax-image scale-[1.3] opacity-50" />
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
           </div>
           <div className="relative z-10 animate-section text-center max-w-4xl px-4 flex flex-col items-center">
@@ -410,7 +410,7 @@ export default function App() {
           </div>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 h-[400px] lg:h-[600px] rounded-3xl overflow-hidden liquid-glass animate-section relative order-2 lg:order-1">
-              <video src="/video3.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover parallax-image scale-[1.3] opacity-80" />
+              <video src={`${import.meta.env.BASE_URL}video3.mp4`} autoPlay loop muted playsInline className="w-full h-full object-cover parallax-image scale-[1.3] opacity-80" />
             </div>
             <div className="lg:col-span-5 flex flex-col justify-center animate-section p-8 lg:p-12 liquid-glass rounded-3xl order-1 lg:order-2 mb-8 lg:mb-0">
               <h3 className="font-heading italic text-4xl lg:text-5xl mb-6">Precision</h3>
@@ -434,7 +434,9 @@ export default function App() {
         
         {/* FOOTER */}
         <footer className="w-full py-16 border-t border-white/5 text-center text-white/40 font-light text-sm z-10 relative bg-black">
-          <LogoMark />
+          <div className="flex justify-center mb-4">
+            <LogoMark />
+          </div>
           <p className="mt-8">&copy; 2026 MicroVisuals Inc. All rights reserved.</p>
         </footer>
 
